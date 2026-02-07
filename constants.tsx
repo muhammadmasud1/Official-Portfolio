@@ -36,7 +36,7 @@ export const COURSES: Course[] = [
       EN: 'The perfect start for beginners. Learn 150 core words and basic sentence structures.', 
       BN: 'নতুনদের জন্য আদর্শ শুরু। ১৫০টি মূল শব্দ এবং মৌলিক বাক্য গঠন শিখুন।' 
     },
-    image: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&q=80&w=800',
+    image: 'https://i.ibb.co.com/8D0rSH2P/hsk1-dfa.png',
     status: 'published'
   },
   {
@@ -49,7 +49,7 @@ export const COURSES: Course[] = [
       EN: 'Expand your reach. Master 300 words and handle simple daily life conversations.', 
       BN: 'আপনার দক্ষতা বাড়ান। ৩০০ শব্দ আয়ত্ত করুন এবং দৈনন্দিন কথোপকথন শিখুন।' 
     },
-    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800',
+    image: 'https://i.ibb.co.com/C31zcwj6/Untitled-design-1.png',
     status: 'published'
   },
   {
@@ -62,7 +62,7 @@ export const COURSES: Course[] = [
       EN: 'Achieve fluency. Master 600 words and communicate on a wide range of topics.', 
       BN: 'সাবলীলতা অর্জন করুন। ৬০০ শব্দ আয়ত্ত করুন এবং বিভিন্ন বিষয়ে কথা বলা শিখুন।' 
     },
-    image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=800',
+    image: 'https://i.ibb.co.com/jPh31741/HSK-3-Master-Course-2026.png',
     status: 'published'
   },
   {
@@ -75,7 +75,7 @@ export const COURSES: Course[] = [
       EN: 'Professional proficiency. Master 1200 words and discuss complex themes fluently.', 
       BN: 'পেশাদার দক্ষতা। ১২০০ শব্দ আয়ত্ত করুন এবং জটিল বিষয়ে সাবলীলভাবে আলোচনা করুন।' 
     },
-    image: 'https://images.unsplash.com/photo-1434039347661-90f02e1b3696?auto=format&fit=crop&q=80&w=800',
+    image: 'https://i.ibb.co.com/60LtmvcD/HSK-3-Master-Course-2026380x215.png',
     status: 'published'
   },
   {
@@ -88,7 +88,7 @@ export const COURSES: Course[] = [
       EN: 'The ultimate path to fluency. Full access to HSK 1, 2, 3, and 4 at a discounted rate.', 
       BN: 'সাবলীল চাইনিজ শেখার সেরা পথ। ডিসকাউন্ট মূল্যে HSK ১, ২, ৩ এবং ৪ এর পূর্ণ এক্সেস।' 
     },
-    image: 'https://images.unsplash.com/photo-1523050335191-51fae873910e?auto=format&fit=crop&q=80&w=800',
+    image: 'https://i.ibb.co.com/MkHS5zCC/rsz-1chatgpt-image-feb-8-2026-12-37-12-am.png',
     status: 'published'
   },
   {
