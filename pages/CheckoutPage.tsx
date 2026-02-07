@@ -175,7 +175,7 @@ const CheckoutPage: React.FC<Props> = ({ lang, user }) => {
                 {PAYMENT_INFO[paymentMethod]}
               </div>
               <p className="text-xs text-zinc-500 uppercase font-bold">
-                Personal Number • Cash Out/Send Money
+                Personal Number • Send Money
               </p>
             </div>
 
@@ -213,7 +213,7 @@ const CheckoutPage: React.FC<Props> = ({ lang, user }) => {
                       value={senderNumber}
                       onChange={e => setSenderNumber(e.target.value)}
                       className="w-full bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-2xl pl-12 pr-4 py-4 focus:ring-2 focus:ring-[#C1121F] outline-none"
-                      placeholder="01XXXXXXXXX"
+                      placeholder="011788060657"
                     />
                   </div>
                 </div>

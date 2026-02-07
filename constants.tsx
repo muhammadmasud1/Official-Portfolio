@@ -9,9 +9,9 @@ export const COLORS = {
 };
 
 export const PAYMENT_INFO = {
-  bKash: '01900000000',
-  Nagad: '01900000000',
-  Rocket: '01900000000-1',
+  bKash: '01788060657',
+  Nagad: '01788060657',
+  Rocket: '017880606578',
 };
 
 export const NAV_LINKS: NavLink[] = [
