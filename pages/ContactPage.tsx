@@ -74,7 +74,7 @@ const ContactPage: React.FC<Props> = ({ lang }) => {
               </div>
               <div>
                 <h4 className="font-black text-sm uppercase tracking-widest text-zinc-400 mb-1">{lang === 'EN' ? 'Official Email' : 'অফিশিয়াল ইমেইল'}</h4>
-                <p className="text-xl font-bold text-zinc-900 dark:text-white">mehedi.chinese@gmail.com</p>
+                <p className="text-xl font-bold text-zinc-900 dark:text-white">mdmasudrana0783@gmail.com</p>
               </div>
             </div>
 
@@ -94,7 +94,7 @@ const ContactPage: React.FC<Props> = ({ lang }) => {
               </div>
               <div>
                 <h4 className="font-black text-sm uppercase tracking-widest text-zinc-400 mb-1">{lang === 'EN' ? 'Consultancy Office' : 'পরামর্শ অফিস'}</h4>
-                <p className="text-xl font-bold text-zinc-900 dark:text-white">Dhanmondi, Dhaka, Bangladesh</p>
+                <p className="text-xl font-bold text-zinc-900 dark:text-white">Panchagarh, Rangpur, Bangladesh</p>
               </div>
             </div>
           </div>

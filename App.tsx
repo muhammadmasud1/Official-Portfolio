@@ -1,9 +1,8 @@
-
 import React, { useState, useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  Globe, Menu, Sun, Moon, LogOut, 
+  Globe, Menu, X, Sun, Moon, LogOut, 
   ShieldCheck, ChevronDown, LayoutDashboard
 } from 'lucide-react';
 
@@ -31,6 +30,7 @@ import CustomCursor from './components/CustomCursor';
 
 const App: React.FC = () => {
   const [lang, setLang] = useState<Language>('BN');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(() => {
     const saved = localStorage.getItem('huayu_theme');
     if (saved) return saved === 'dark';
@@ -72,6 +72,7 @@ const App: React.FC = () => {
     localStorage.removeItem('huayu_user');
     setCurrentUser(null);
     setIsDropdownOpen(false);
+    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -82,7 +83,8 @@ const App: React.FC = () => {
         <nav className="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-16">
-              <Link to="/" className="flex items-center gap-2 group">
+              {/* Logo Section */}
+              <Link to="/" className="flex items-center gap-2 group" onClick={() => setIsMobileMenuOpen(false)}>
                 <div className="w-10 h-10 bg-[#C1121F] rounded-lg flex items-center justify-center text-white font-bold text-xl chinese-font group-hover:rotate-12 transition-transform shadow-lg shadow-red-500/10">
                   华
                 </div>
@@ -92,6 +94,7 @@ const App: React.FC = () => {
                 </div>
               </Link>
 
+              {/* Desktop Menu - Hidden on Mobile */}
               <div className="hidden md:flex items-center gap-6">
                 {NAV_LINKS.map(link => (
                   <Link 
@@ -104,7 +107,8 @@ const App: React.FC = () => {
                 ))}
               </div>
 
-              <div className="flex items-center gap-3">
+              {/* Utility Icons & Profile */}
+              <div className="flex items-center gap-2">
                 <button 
                   onClick={toggleLang} 
                   className="hidden sm:flex p-2.5 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-900 items-center gap-1.5 text-[10px] font-black uppercase tracking-widest transition-all text-zinc-600 dark:text-zinc-300"
@@ -115,10 +119,8 @@ const App: React.FC = () => {
                 <button 
                   onClick={toggleDarkMode} 
                   className="p-2.5 rounded-xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-[#C1121F] transition-all group relative overflow-hidden"
-                  aria-label="Toggle Dark Mode"
                 >
                   <motion.div
-                    initial={false}
                     animate={{ y: darkMode ? -40 : 0 }}
                     transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                   >
@@ -127,18 +129,16 @@ const App: React.FC = () => {
                   </motion.div>
                 </button>
 
+                {/* User Dropdown / Login Button */}
                 {currentUser ? (
                   <div className="relative ml-1">
                     <button 
                       onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                      className="flex items-center gap-2 bg-zinc-100 dark:bg-zinc-900 px-3 py-1.5 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:border-[#C1121F] transition-all shadow-sm"
+                      className="flex items-center gap-2 bg-zinc-100 dark:bg-zinc-900 px-3 py-1.5 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:border-[#C1121F] transition-all"
                     >
                       <div className="w-6 h-6 bg-[#C1121F] rounded-lg flex items-center justify-center text-[10px] text-white font-bold">
                         {currentUser.isAdmin ? 'A' : currentUser.name.charAt(0)}
                       </div>
-                      <span className="text-[10px] font-black uppercase tracking-widest hidden sm:block text-zinc-800 dark:text-zinc-200">
-                        {currentUser.isAdmin ? 'Admin' : currentUser.name.split(' ')[0]}
-                      </span>
                       <ChevronDown className={`w-3 h-3 text-zinc-400 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
                     </button>
                     
@@ -158,7 +158,6 @@ const App: React.FC = () => {
                           <Link to="/dashboard" onClick={() => setIsDropdownOpen(false)} className="flex items-center gap-3 px-4 py-3 text-xs font-black uppercase tracking-widest hover:bg-zinc-50 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
                             <ShieldCheck className="w-4 h-4" /> {lang === 'EN' ? 'Student Dashboard' : 'ড্যাশবোর্ড'}
                           </Link>
-                          <div className="h-px bg-zinc-100 dark:bg-zinc-800 mx-2 my-1" />
                           <button onClick={handleLogout} className="w-full flex items-center gap-3 px-4 py-3 text-xs font-black uppercase tracking-widest text-red-500 hover:bg-red-50 dark:hover:bg-red-950/20">
                             <LogOut className="w-4 h-4" /> {lang === 'EN' ? 'Logout' : 'লগআউট'}
                           </button>
@@ -167,13 +166,63 @@ const App: React.FC = () => {
                     </AnimatePresence>
                   </div>
                 ) : (
-                  <Link to="/login" className="ml-1 px-6 py-2 bg-[#C1121F] text-white rounded-xl text-xs font-black uppercase tracking-widest hover:bg-red-700 transition-all shadow-lg shadow-red-500/10 active:scale-95">
+                  <Link to="/login" className="hidden sm:block ml-1 px-6 py-2 bg-[#C1121F] text-white rounded-xl text-xs font-black uppercase tracking-widest hover:bg-red-700 transition-all">
                     {lang === 'EN' ? 'Login' : 'লগইন'}
                   </Link>
                 )}
+
+                {/* Mobile Hamburger Toggle */}
+                <button 
+                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                  className="md:hidden p-2.5 rounded-xl bg-zinc-100 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-300 border border-transparent hover:border-[#C1121F] transition-all"
+                >
+                  {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                </button>
               </div>
             </div>
           </div>
+
+          {/* Mobile Navigation Menu */}
+          <AnimatePresence>
+            {isMobileMenuOpen && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                className="md:hidden bg-white dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800 overflow-hidden"
+              >
+                <div className="px-4 py-6 space-y-2">
+                  {NAV_LINKS.map(link => (
+                    <Link 
+                      key={link.path} 
+                      to={link.path}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="block px-4 py-3 text-[11px] font-black uppercase tracking-[0.2em] text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900 hover:text-[#C1121F] rounded-xl transition-all"
+                    >
+                      {link.label[lang]}
+                    </Link>
+                  ))}
+                  <div className="pt-4 border-t border-zinc-100 dark:border-zinc-900 flex flex-col gap-3">
+                    <button 
+                      onClick={toggleLang}
+                      className="flex items-center gap-3 px-4 py-2 text-[11px] font-black uppercase tracking-widest text-zinc-500"
+                    >
+                      <Globe className="w-4 h-4" /> Language: {lang}
+                    </button>
+                    {!currentUser && (
+                      <Link 
+                        to="/login" 
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="w-full py-4 bg-[#C1121F] text-white text-center rounded-xl text-[11px] font-black uppercase tracking-widest"
+                      >
+                        {lang === 'EN' ? 'Login' : 'লগইন'}
+                      </Link>
+                    )}
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </nav>
 
         <main className="flex-grow pt-16">
@@ -204,7 +253,6 @@ const App: React.FC = () => {
           </Routes>
         </main>
 
-        {/* Global AI Chatbot */}
         <AIChatbot lang={lang} />
 
         <footer className="bg-zinc-50 dark:bg-zinc-900/50 py-16 border-t border-zinc-200 dark:border-zinc-800">

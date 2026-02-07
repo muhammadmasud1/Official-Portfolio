@@ -27,7 +27,7 @@ const HomePage: React.FC<Props> = ({ lang }) => {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-100 dark:bg-red-900/30 text-[#C1121F] text-sm font-bold mb-6">
               <ShieldCheck className="w-4 h-4" />
-              <span>{lang === 'EN' ? 'Certified Master Instructor' : 'প্রত্যয়িত মাস্টার ইন্সট্রাক্টর'}</span>
+              <span>{lang === 'EN' ? 'Certified Chinese Instructor' : 'সার্টিফায়েড চাইনিজ ইন্সট্রাক্টর'}</span>
             </div>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-[1.1] text-zinc-900 dark:text-white">
               {lang === 'EN' ? (
@@ -38,8 +38,8 @@ const HomePage: React.FC<Props> = ({ lang }) => {
             </h1>
             <p className="text-xl text-zinc-600 dark:text-zinc-400 mb-10 max-w-lg leading-relaxed font-medium">
               {lang === 'EN' 
-                ? 'Expert HSK coaching, professional interpretation, and award-winning books from Bangladesh\'s leading expert.' 
-                : 'বাংলাদেশের শীর্ষস্থানীয় বিশেষজ্ঞের কাছ থেকে HSK কোচিং, পেশাদার অনুবাদ সেবা এবং পুরস্কারপ্রাপ্ত বই।'}
+                ? 'Experience expert-led HSK coaching, professional translation services, and quality books all in one place.' 
+                : 'বাংলাদেশে অভিজ্ঞ বিশেষজ্ঞের কাছ থেকে HSK কোচিং, পেশাদার অনুবাদ সেবা এবং মানসম্মত বই পাবেন।'}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
               <Link to="/courses" className="px-8 py-4 bg-[#C1121F] text-white rounded-xl font-bold hover:bg-red-700 transition-all flex items-center justify-center gap-2 shadow-lg shadow-red-500/20 group">
@@ -67,7 +67,7 @@ const HomePage: React.FC<Props> = ({ lang }) => {
                 <div className="flex items-center gap-1 text-yellow-500 mb-1">
                   {[1, 2, 3, 4, 5].map(i => <Star key={i} className="w-3 h-3 fill-current" />)}
                 </div>
-                <p className="text-zinc-500 dark:text-zinc-400 font-bold uppercase tracking-widest text-[10px]">1,200+ {lang === 'EN' ? 'Success Stories' : 'সফল ছাত্রছাত্রী'}</p>
+                <p className="text-zinc-500 dark:text-zinc-400 font-bold uppercase tracking-widest text-[10px]">100+ {lang === 'EN' ? 'Success Stories' : 'সফল ছাত্রছাত্রী'}</p>
               </div>
             </div>
           </motion.div>
@@ -109,10 +109,10 @@ const HomePage: React.FC<Props> = ({ lang }) => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { label: lang === 'EN' ? 'Years Exp' : 'অভিজ্ঞতা', value: '7+', icon: MessageSquare },
-              { label: lang === 'EN' ? 'Students' : 'ছাত্রছাত্রী', value: '1.2K', icon: GraduationCap },
-              { label: lang === 'EN' ? 'Books Sold' : 'বই বিক্রি', value: '5K+', icon: BookOpen },
-              { label: lang === 'EN' ? 'Projects' : 'প্রকল্প', value: '200+', icon: ShieldCheck },
+              { label: lang === 'EN' ? 'Years Exp' : 'অভিজ্ঞতা', value: '2+', icon: MessageSquare },
+              { label: lang === 'EN' ? 'Students' : 'ছাত্রছাত্রী', value: '100+', icon: GraduationCap },
+              { label: lang === 'EN' ? 'Books Sold' : 'বই বিক্রি', value: '1K+', icon: BookOpen },
+              { label: lang === 'EN' ? 'Projects' : 'প্রকল্প', value: '10+', icon: ShieldCheck },
             ].map((stat, i) => (
               <motion.div 
                 key={i}
